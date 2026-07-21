@@ -33,8 +33,11 @@ export default function Home() {
             <a className="button primary" href="#contact">Я бренд - получить медиаплан <Arrow /></a>
             <a className="button ghost" href="#streamers">Я стример - стать партнером</a>
           </div>
-          <div className="platform-row" aria-label="Поддерживаемые платформы">
-            <span>VK LIVE</span><span>KICK</span><span>TWITCH</span><span>YOUTUBE LIVE</span>
+          <div className="platform-row" aria-label="Streaming platforms">
+            <span className="platform-chip platform-vk"><i aria-hidden="true">VK</i><b>LIVE</b></span>
+            <span className="platform-chip platform-kick"><b>KICK</b></span>
+            <span className="platform-chip platform-twitch"><i aria-hidden="true" /><b>TWITCH</b></span>
+            <span className="platform-chip platform-youtube"><i aria-hidden="true" /><b>YOUTUBE</b><small>LIVE</small></span>
           </div>
         </div>
 
@@ -135,7 +138,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer><div className="shell footer-grid"><div className="logo"><img src="/addflow-logo-original.png" alt="" /><span>AddFlow</span></div><p>Прозрачная реклама в стриминге</p><div><a href="mailto:hello@addflow.ru">Контакты</a><a href="#top">Наверх ↑</a></div></div></footer>
+      <footer><div className="shell footer-grid"><div className="logo"><img src="/addflow-logo-original.png" alt="" /><span>AddFlow</span></div><p>{t("footer")}</p><div><a href="mailto:hello@addflow.ru">{t("contacts")}</a><a href="#top">{t("top")} ↑</a></div></div></footer>
     </main>
   );
 }
