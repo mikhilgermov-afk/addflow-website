@@ -1,11 +1,12 @@
 "use client";
 
 import { LeadForm } from "./LeadForm";
-import { LanguageSwitcher } from "./LanguageContext";
+import { LanguageSwitcher, useLanguage } from "./LanguageContext";
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
 
 export default function Home() {
+  const { t } = useLanguage();
   return (
     <main>
       <header className="nav-wrap">
@@ -70,7 +71,7 @@ export default function Home() {
           <h2>Реклама становится<br /><span>частью контента.</span></h2>
           <p className="manifesto-copy">Не случайный логотип поверх трансляции, а точное попадание в аудиторию, управляемый сценарий и измеримый результат.</p>
         </div>
-        <div className="ticker" aria-hidden="true"><div>ЖИВОЙ КОНТАКТ · ЧЕСТНАЯ АНАЛИТИКА · НАТИВНЫЙ ФОРМАТ · ЖИВОЙ КОНТАКТ · ЧЕСТНАЯ АНАЛИТИКА · НАТИВНЫЙ ФОРМАТ ·&nbsp;</div></div>
+        <div className="ticker" aria-hidden="true"><div>{t("ticker")} {t("ticker")} {t("ticker")} {t("ticker")}&nbsp;</div></div>
       </section>
 
       <section className="split shell" id="streamers">

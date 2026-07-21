@@ -1,6 +1,6 @@
 "use client";
 
-import { createContext, ReactNode, useContext, useEffect, useMemo, useState } from "react";
+import { createContext, ReactNode, useContext, useEffect, useMemo, useRef, useState } from "react";
 
 export type Locale = "ru" | "kk" | "ka" | "ko" | "en" | "de" | "tr";
 type Dictionary = Record<string, string>;
@@ -46,6 +46,7 @@ const ka: Dictionary = {
 
 const dictionaries: Record<Locale, Dictionary> = { ru, kk, ka, ko, en, de, tr };
 const localeNames: Record<Locale, string> = { ru:"Русский", kk:"Қазақша", ka:"ქართული", ko:"한국어", en:"English", de:"Deutsch", tr:"Türkçe" };
+const localeFlags: Record<Locale, string> = { ru:"🇷🇺", kk:"🇰🇿", ka:"🇬🇪", ko:"🇰🇷", en:"🇬🇧", de:"🇩🇪", tr:"🇹🇷" };
 
 type LanguageValue = { locale: Locale; setLocale: (locale: Locale) => void; t: (key: string) => string };
 const LanguageContext = createContext<LanguageValue>({ locale:"ru", setLocale:()=>{}, t:(key)=>ru[key] ?? key });
@@ -103,8 +104,16 @@ export function useLanguage() { return useContext(LanguageContext); }
 export function LanguageSwitcher() {
   const { locale, setLocale } = useLanguage();
   const [open, setOpen] = useState(false);
-  return <div className="language-switcher">
-    <button className="language-current" type="button" aria-label="Language" aria-haspopup="listbox" aria-expanded={open} onClick={()=>setOpen(!open)}>{localeNames[locale]} <span>⌄</span></button>
-    {open && <div className="language-menu" role="listbox">{(Object.keys(localeNames) as Locale[]).map((code)=><button role="option" aria-selected={locale===code} key={code} type="button" onClick={()=>{setLocale(code);setOpen(false)}}><small>{code.toUpperCase()}</small>{localeNames[code]}</button>)}</div>}
+  const rootRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const close = (event: MouseEvent) => { if (!rootRef.current?.contains(event.target as Node)) setOpen(false); };
+    const escape = (event: KeyboardEvent) => { if (event.key === "Escape") setOpen(false); };
+    document.addEventListener("pointerdown", close);
+    document.addEventListener("keydown", escape);
+    return () => { document.removeEventListener("pointerdown", close); document.removeEventListener("keydown", escape); };
+  }, []);
+  return <div className="language-switcher" ref={rootRef}>
+    <button className="language-current" type="button" aria-label="Language" aria-haspopup="listbox" aria-expanded={open} onClick={()=>setOpen(!open)}><span className="language-globe" aria-hidden="true">◎</span><span className="language-flag" aria-hidden="true">{localeFlags[locale]}</span><span className="language-name">{localeNames[locale]}</span><span className="language-chevron" aria-hidden="true" /></button>
+    {open && <div className="language-menu" role="listbox"><div className="language-menu-title"><span>Language</span><small>{locale.toUpperCase()}</small></div>{(Object.keys(localeNames) as Locale[]).map((code)=><button role="option" aria-selected={locale===code} lang={code} key={code} type="button" onClick={()=>{setLocale(code);setOpen(false)}}><span className="language-flag" aria-hidden="true">{localeFlags[code]}</span><span>{localeNames[code]}</span><small>{code.toUpperCase()}</small><i aria-hidden="true">✓</i></button>)}</div>}
   </div>;
 }
