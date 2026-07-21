@@ -8,7 +8,7 @@ export default function Home() {
       <header className="nav-wrap">
         <nav className="nav shell" aria-label="Основная навигация">
           <a className="logo" href="#top" aria-label="AddFlow — на главную">
-            <span className="logo-mark"><i /><i /><i /></span>
+            <img src="/addflow-logo-original.png" alt="" />
             <span>AddFlow</span>
           </a>
           <div className="nav-links">
@@ -40,8 +40,8 @@ export default function Home() {
           <div className="live-window">
             <div className="window-top"><span className="live-dot">LIVE</span><span>Кампания / 08</span><span>•••</span></div>
             <div className="stream-frame">
-              <div className="stream-person"><span className="head" /><span className="body" /></div>
-              <div className="chat-lines"><i /><i /><i /><i /></div>
+              <img className="stream-photo" src="/streamer-gaming.png" alt="Стример ведет игровой эфир из студии" />
+              <div className="stream-shade" />
               <div className="ad-overlay"><b>RUSH MODE</b><span>× AddFlow</span><strong>–20%</strong></div>
               <span className="viewers">● 2 418 зрителей</span>
             </div>
@@ -85,6 +85,24 @@ export default function Home() {
         </article>
       </section>
 
+      <section className="creator-showcase shell" aria-label="Пример рекламной интеграции в эфире">
+        <div className="creator-visual">
+          <img src="/streamer-creator.png" alt="Автор ведет прямой эфир в студии" />
+          <div className="creator-live"><span>● LIVE</span><b>4 892</b><small>смотрят сейчас</small></div>
+          <div className="creator-overlay">
+            <img src="/addflow-logo-original.png" alt="" />
+            <div><span>СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ</span><b>FLOW WEEK</b></div>
+            <strong>–25%</strong>
+          </div>
+        </div>
+        <div className="creator-caption">
+          <p className="section-kicker">Интеграция в контент</p>
+          <h2>Оверлей появляется<br /><span>в нужный момент.</span></h2>
+          <p>Плашка не перекрывает героя и ключевые элементы трансляции. Бренд получает внимание, а зритель — цельный эфир без раздражающей паузы.</p>
+          <div><span>Видимость</span><b>98.4%</b><i /><span>Досмотры</span><b>72.1%</b><i /></div>
+        </div>
+      </section>
+
       <section className="workflow" id="how">
         <div className="shell">
           <div className="section-head"><div><p className="section-kicker">02 / От запроса до эфира</p><h2>Один поток.<br /><span>Три шага.</span></h2></div><p>Все стороны видят условия, статус и результат — без таблиц, потерянных сообщений и ручной сверки.</p></div>
@@ -114,7 +132,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer><div className="shell footer-grid"><div className="logo"><span className="logo-mark"><i/><i/><i/></span><span>AddFlow</span></div><p>Прозрачная реклама в стриминге</p><div><a href="mailto:hello@addflow.ru">Контакты</a><a href="#top">Наверх ↑</a></div></div></footer>
+      <footer><div className="shell footer-grid"><div className="logo"><img src="/addflow-logo-original.png" alt="" /><span>AddFlow</span></div><p>Прозрачная реклама в стриминге</p><div><a href="mailto:hello@addflow.ru">Контакты</a><a href="#top">Наверх ↑</a></div></div></footer>
     </main>
   );
 }
