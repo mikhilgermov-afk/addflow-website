@@ -130,7 +130,7 @@ export default function Home() {
       <section className="contact" id="contact">
         <div className="contact-orb" />
         <div className="shell contact-grid">
-          <div><p className="section-kicker">04 / Начнем движение</p><h2>Готовы войти<br />в <em>поток?</em></h2><p>Расскажите, кто вы и какую задачу хотите решить. Мы вернемся с идеями для первого запуска.</p><a className="email-link" href="mailto:hello@addflow.ru">hello@addflow.ru <Arrow /></a></div>
+          <div><p className="section-kicker">04 / Начнем движение</p><h2>{t("contactA")}<br /><em>{t("contactB")}</em></h2><p>Расскажите, кто вы и какую задачу хотите решить. Мы вернемся с идеями для первого запуска.</p><a className="email-link" href="mailto:hello@addflow.ru">hello@addflow.ru <Arrow /></a></div>
           <LeadForm />
         </div>
       </section>
