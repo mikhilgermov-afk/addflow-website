@@ -1,4 +1,7 @@
+"use client";
+
 import { LeadForm } from "./LeadForm";
+import { LanguageSwitcher } from "./LanguageContext";
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
 
@@ -16,7 +19,7 @@ export default function Home() {
             <a href="#how">Как работает</a>
             <a href="#proof">Возможности</a>
           </div>
-          <a className="nav-cta" href="#contact">Получить предложение <Arrow /></a>
+          <div className="nav-actions"><LanguageSwitcher /><a className="nav-cta" href="#contact">Получить предложение <Arrow /></a></div>
         </nav>
       </header>
 
