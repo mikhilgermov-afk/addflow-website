@@ -9,12 +9,12 @@ export function LeadForm() {
   function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    const subject = encodeURIComponent(`Заявка AddFlow — ${role}`);
+    const subject = encodeURIComponent(`Заявка AddFlow - ${role}`);
     const body = encodeURIComponent([
       `Имя / компания: ${data.get("name")}`,
       `Роль: ${role}`,
       `Контакт: ${data.get("contact")}`,
-      `Задача: ${data.get("message") || "—"}`,
+      `Задача: ${data.get("message") || "-"}`,
     ].join("\n"));
     setSent(true);
     window.location.href = `mailto:hello@addflow.ru?subject=${subject}&body=${body}`;

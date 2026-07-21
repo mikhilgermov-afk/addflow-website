@@ -7,7 +7,7 @@ export default function Home() {
     <main>
       <header className="nav-wrap">
         <nav className="nav shell" aria-label="Основная навигация">
-          <a className="logo" href="#top" aria-label="AddFlow — на главную">
+          <a className="logo" href="#top" aria-label="AddFlow - на главную">
             <img src="/addflow-logo-original.png" alt="" />
             <span>AddFlow</span>
           </a>
@@ -23,11 +23,11 @@ export default function Home() {
       <section className="hero shell" id="top">
         <div className="hero-copy">
           <div className="eyebrow"><span /> Новая рекламная среда стриминга</div>
-          <h1>В эфире — бренд.<br /><em>В плюсе — автор.</em></h1>
+          <h1>В эфире - бренд.<br /><em>В плюсе - автор.</em></h1>
           <p className="hero-lead">Бренды получают нативное внимание и прозрачный результат. Стримеры выбирают подходящие кампании и монетизируют аудиторию без потери доверия.</p>
           <div className="hero-actions">
-            <a className="button primary" href="#contact">Я бренд — получить медиаплан <Arrow /></a>
-            <a className="button ghost" href="#streamers">Я стример — стать партнером</a>
+            <a className="button primary" href="#contact">Я бренд - получить медиаплан <Arrow /></a>
+            <a className="button ghost" href="#streamers">Я стример - стать партнером</a>
           </div>
           <div className="platform-row" aria-label="Поддерживаемые платформы">
             <span>VK LIVE</span><span>KICK</span><span>TWITCH</span><span>YOUTUBE LIVE</span>
@@ -104,7 +104,7 @@ export default function Home() {
 
       <section className="workflow" id="how">
         <div className="shell">
-          <div className="section-head"><div><p className="section-kicker">02 / От запроса до эфира</p><h2>Один поток.<br /><span>Три шага.</span></h2></div><p>Все стороны видят условия, статус и результат — без таблиц, потерянных сообщений и ручной сверки.</p></div>
+          <div className="section-head"><div><p className="section-kicker">02 / От запроса до эфира</p><h2>Один поток.<br /><span>Три шага.</span></h2></div><p>Все стороны видят условия, статус и результат - без таблиц, потерянных сообщений и ручной сверки.</p></div>
           <div className="steps">
             <article><span>01</span><div className="step-icon target-icon"><i /></div><h3>Точное совпадение</h3><p>Бренд задает аудиторию и задачу. AddFlow находит релевантных авторов.</p></article>
             <article><span>02</span><div className="step-icon play-icon">▶</div><h3>Нативный выход</h3><p>Формат адаптируется под стрим и появляется в нужный момент трансляции.</p></article>
@@ -114,7 +114,7 @@ export default function Home() {
       </section>
 
       <section className="dashboard-section shell" id="proof">
-        <div className="dashboard-copy"><p className="section-kicker">03 / Все видно</p><h2>Результат —<br /><span>не ощущение.</span></h2><p>Единая картина кампании: кто вышел в эфир, сколько людей увидели интеграцию и что сделали после.</p><div className="data-points"><div><b>REAL—TIME</b><span>данные без задержки</span></div><div><b>BRAND—SAFE</b><span>контроль площадок</span></div></div></div>
+        <div className="dashboard-copy"><p className="section-kicker">03 / Все видно</p><h2>Результат -<br /><span>не ощущение.</span></h2><p>Единая картина кампании: кто вышел в эфир, сколько людей увидели интеграцию и что сделали после.</p><div className="data-points"><div><b>REAL-TIME</b><span>данные без задержки</span></div><div><b>BRAND-SAFE</b><span>контроль площадок</span></div></div></div>
         <div className="dashboard">
           <div className="dash-head"><span>CAMPAIGN / RUSH MODE</span><span className="live-dot">● LIVE</span></div>
           <div className="dash-total"><small>Суммарный охват</small><strong>1 284 602</strong><span>+24.8% к прогнозу</span></div>

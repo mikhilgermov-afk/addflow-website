@@ -6,7 +6,7 @@ const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin", "cyr
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin", "cyrillic"] });
 
 export const metadata: Metadata = {
-  title: "AddFlow — реклама входит в эфир",
+  title: "AddFlow - реклама входит в эфир",
   description: "AddFlow соединяет бренды и стримеров: нативные интеграции, прозрачные условия и живая аналитика кампаний.",
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
