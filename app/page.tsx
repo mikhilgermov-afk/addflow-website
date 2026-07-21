@@ -16,18 +16,18 @@ export default function Home() {
             <a href="#how">Как работает</a>
             <a href="#proof">Возможности</a>
           </div>
-          <a className="nav-cta" href="#contact">Подключиться <Arrow /></a>
+          <a className="nav-cta" href="#contact">Получить предложение <Arrow /></a>
         </nav>
       </header>
 
       <section className="hero shell" id="top">
         <div className="hero-copy">
           <div className="eyebrow"><span /> Новая рекламная среда стриминга</div>
-          <h1>Бренд входит<br />в <em>эфир.</em></h1>
-          <p className="hero-lead">AddFlow соединяет бренды и стримеров — с прозрачной аналитикой, живыми форматами и рекламой, которую не хочется проматывать.</p>
+          <h1>В эфире — бренд.<br /><em>В плюсе — автор.</em></h1>
+          <p className="hero-lead">Бренды получают нативное внимание и прозрачный результат. Стримеры выбирают подходящие кампании и монетизируют аудиторию без потери доверия.</p>
           <div className="hero-actions">
-            <a className="button primary" href="#contact">Запустить кампанию <Arrow /></a>
-            <a className="button ghost" href="#streamers">Я стример</a>
+            <a className="button primary" href="#contact">Я бренд — получить медиаплан <Arrow /></a>
+            <a className="button ghost" href="#streamers">Я стример — стать партнером</a>
           </div>
           <div className="platform-row" aria-label="Поддерживаемые платформы">
             <span>VK LIVE</span><span>KICK</span><span>TWITCH</span><span>YOUTUBE LIVE</span>
@@ -38,11 +38,9 @@ export default function Home() {
           <div className="signal signal-one" /><div className="signal signal-two" />
           <div className="stage-glow" />
           <div className="live-window">
-            <div className="window-top"><span className="live-dot">LIVE</span><span>Кампания / 08</span><span>•••</span></div>
+            <div className="window-top"><span className="live-dot">LIVE</span><span>Демо-кампания / 08</span><span>•••</span></div>
             <div className="stream-frame">
-              <img className="stream-photo" src="/streamer-gaming.png" alt="Стример ведет игровой эфир из студии" />
-              <div className="stream-shade" />
-              <div className="ad-overlay"><b>RUSH MODE</b><span>× AddFlow</span><strong>–20%</strong></div>
+              <img className="stream-photo" src="/streamer-gaming-overlay.png" alt="Игровой эфир с нативным рекламным оверлеем" />
               <span className="viewers">● 2 418 зрителей</span>
             </div>
             <div className="metric-strip">
@@ -55,6 +53,12 @@ export default function Home() {
           <div className="floating-card card-b"><span>СЛЕДУЮЩИЙ СЛОТ</span><b>18:45</b></div>
         </div>
         <div className="scroll-cue"><span /> Листайте, чтобы увидеть поток</div>
+      </section>
+
+      <section className="clarity-strip shell" aria-label="Что известно сторонам до запуска">
+        <div className="clarity-title"><span>До запуска</span><strong>Никаких сюрпризов.</strong></div>
+        <div><span>Бренд видит</span><p>Аудиторию · формат · стоимость · сценарий</p></div>
+        <div><span>Стример видит</span><p>Бренд · ставку · длительность · механику</p></div>
       </section>
 
       <section className="manifesto" id="product">
@@ -70,36 +74,31 @@ export default function Home() {
         <article className="audience-card brand-card">
           <span className="card-number">01</span><span className="card-tag">ДЛЯ БРЕНДОВ</span>
           <div className="orb orb-brand"><i /><i /><i /></div>
-          <h3>Охват, которому<br />можно доверять.</h3>
-          <p>Выбирайте стримеров по аудитории, запускайте интеграции и следите за результатом в реальном времени.</p>
-          <ul><li>Проверенная аудитория</li><li>Единый кабинет кампании</li><li>Прозрачные метрики</li></ul>
-          <a href="#contact">Запустить рекламу <Arrow /></a>
+          <h3>Понимать результат<br />еще до эфира.</h3>
+          <p>Получите подборку авторов под задачу, согласуйте формат заранее и увидите результат каждого размещения в одном отчете.</p>
+          <ul><li>Авторы под вашу аудиторию и категорию</li><li>Сценарий и стоимость до согласования</li><li>Отчет по каждому размещению</li></ul>
+          <a href="#contact">Получить подборку стримеров <Arrow /></a>
         </article>
         <article className="audience-card creator-card">
           <span className="card-number">02</span><span className="card-tag">ДЛЯ СТРИМЕРОВ</span>
           <div className="orb orb-creator"><i /><i /><i /></div>
-          <h3>Монетизация<br />без потери лица.</h3>
-          <p>Получайте релевантные предложения и встраивайте рекламу так, чтобы она работала вместе с вашим контентом.</p>
-          <ul><li>Подходящие вашему стилю бренды</li><li>Понятные условия до старта</li><li>Контроль над размещением</li></ul>
-          <a href="#contact">Стать партнером <Arrow /></a>
+          <h3>Выбирать рекламу,<br />а не терпеть её.</h3>
+          <p>Вы сами решаете, какой бренд попадет в эфир. Формат подстраивается под канал, а ставка и сценарий понятны до вашего согласия.</p>
+          <ul><li>Вы выбираете бренд и кампанию</li><li>Ставка и сценарий известны заранее</li><li>Формат учитывает стиль вашего канала</li></ul>
+          <a href="#contact">Получать подходящие предложения <Arrow /></a>
         </article>
       </section>
 
-      <section className="creator-showcase shell" aria-label="Пример рекламной интеграции в эфире">
+      <section className="creator-showcase shell" id="integration" aria-label="Пример рекламной интеграции в эфире">
         <div className="creator-visual">
-          <img src="/streamer-creator.png" alt="Автор ведет прямой эфир в студии" />
+          <img src="/streamer-creator-overlay.png" alt="Автор ведет эфир с интегрированным рекламным оверлеем" />
           <div className="creator-live"><span>● LIVE</span><b>4 892</b><small>смотрят сейчас</small></div>
-          <div className="creator-overlay">
-            <img src="/addflow-logo-original.png" alt="" />
-            <div><span>СПЕЦИАЛЬНОЕ ПРЕДЛОЖЕНИЕ</span><b>FLOW WEEK</b></div>
-            <strong>–25%</strong>
-          </div>
         </div>
         <div className="creator-caption">
           <p className="section-kicker">Интеграция в контент</p>
-          <h2>Оверлей появляется<br /><span>в нужный момент.</span></h2>
-          <p>Плашка не перекрывает героя и ключевые элементы трансляции. Бренд получает внимание, а зритель — цельный эфир без раздражающей паузы.</p>
-          <div><span>Видимость</span><b>98.4%</b><i /><span>Досмотры</span><b>72.1%</b><i /></div>
+          <h2>Оверлей выглядит<br /><span>частью трансляции.</span></h2>
+          <p>Он остается в safe-зоне, не перекрывает автора и ключевой контент. Бренд заметен, а зритель не выпадает из эфира.</p>
+          <div><span>Safe-зона</span><b>Соблюдена</b><i /><span>Ключевой контент</span><b>Не перекрыт</b><i /></div>
         </div>
       </section>
 
