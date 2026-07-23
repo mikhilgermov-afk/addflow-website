@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,8 +7,8 @@
 </head>
 <body style="margin:0;padding:40px;background:#f3f4f6;">
   <div style="width:600px;max-width:100%;margin:0 0 12px;font-family:Arial,Helvetica,sans-serif;">
-    <button id="copy-signature" type="button" onclick="copySignature()" style="height:38px;padding:0 16px;border:0;background:#b7ff39;color:#0b0d0a;font-family:Consolas,'Courier New',monospace;font-size:10px;font-weight:800;letter-spacing:.7px;cursor:pointer;">COPY SIGNATURE</button>
-    <span style="padding-left:10px;color:#68707c;font-size:11px;">Then paste it into Gmail or Outlook settings</span>
+    <button id="copy-signature" type="button" onclick="copySignature()" style="height:38px;padding:0 16px;border:0;background:#b7ff39;color:#0b0d0a;font-family:Consolas,'Courier New',monospace;font-size:10px;font-weight:800;letter-spacing:.7px;cursor:pointer;">СКОПИРОВАТЬ ПОДПИСЬ</button>
+    <span style="padding-left:10px;color:#68707c;font-size:11px;">В Roundcube сначала включите HTML-подпись кнопкой с иконкой картинки</span>
   </div>
   <!-- Copy only the table below into your email signature settings. -->
   <table id="addflow-signature" role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" bgcolor="#07090d" style="width:600px;max-width:100%;table-layout:fixed;border-collapse:collapse;background:#07090d;color:#f4f4f1;font-family:Arial,Helvetica,sans-serif;box-shadow:0 18px 50px rgba(7,9,13,.18);">
@@ -48,7 +48,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td width="20" style="width:20px;padding:0 8px 0 0;color:#35d9ff;font-family:Consolas,'Courier New',monospace;font-size:10px;font-weight:800;">↗</td>
+                  <td width="20" style="width:20px;padding:0 8px 0 0;color:#35d9ff;font-family:Consolas,'Courier New',monospace;font-size:10px;font-weight:800;">&#8599;</td>
                   <td>
                     <a href="https://add-flow.ru" target="_blank" style="color:#f4f4f1;text-decoration:none;font-size:12px;line-height:16px;font-weight:700;">add-flow.ru</a>
                   </td>
@@ -78,36 +78,27 @@
     </tr>
   </table>
   <script>
-    async function copySignature() {
+    function copySignature() {
       const signature = document.getElementById("addflow-signature");
       const button = document.getElementById("copy-signature");
+
+      const selection = window.getSelection();
+      const range = document.createRange();
+      range.selectNode(signature);
+      selection.removeAllRanges();
+      selection.addRange(range);
+
       try {
-        if (navigator.clipboard && window.ClipboardItem) {
-          const html = signature.outerHTML;
-          const text = signature.innerText;
-          await navigator.clipboard.write([new ClipboardItem({
-            "text/html": new Blob([html], { type: "text/html" }),
-            "text/plain": new Blob([text], { type: "text/plain" })
-          })]);
-        } else {
-          const selection = window.getSelection();
-          const range = document.createRange();
-          range.selectNode(signature);
-          selection.removeAllRanges();
-          selection.addRange(range);
-          document.execCommand("copy");
-          selection.removeAllRanges();
+        const copied = document.execCommand("copy");
+        if (!copied) {
+          throw new Error("Copy command was rejected");
         }
-        button.textContent = "COPIED ✓";
-      } catch (_error) {
-        button.textContent = "SELECT & COPY";
-        const selection = window.getSelection();
-        const range = document.createRange();
-        range.selectNode(signature);
         selection.removeAllRanges();
-        selection.addRange(range);
+        button.textContent = "СКОПИРОВАНО";
+      } catch (_error) {
+        button.textContent = "НАЖМИТЕ CTRL+C";
       }
-      setTimeout(() => { button.textContent = "COPY SIGNATURE"; }, 3500);
+      setTimeout(() => { button.textContent = "СКОПИРОВАТЬ ПОДПИСЬ"; }, 3500);
     }
   </script>
 </body>
