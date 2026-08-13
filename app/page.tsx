@@ -80,7 +80,16 @@ export default function Home() {
       <section className="split shell" id="streamers">
         <article className="audience-card brand-card">
           <span className="card-number">01</span><span className="card-tag">ДЛЯ БРЕНДОВ</span>
-          <div className="orb orb-brand"><i /><i /><i /></div>
+          <div className="product-preview brand-preview" aria-label="Пример подбора стримера">
+            <div className="preview-top"><span>CREATOR MATCH</span><b><i /> 96%</b></div>
+            <div className="creator-profile">
+              <span className="profile-avatar">NL</span>
+              <div><strong>@nikita_live</strong><small>Gaming & Tech · TWITCH</small></div>
+              <span className="verified">✓</span>
+            </div>
+            <div className="preview-stats"><div><small>CORE AUDIENCE</small><b>64%</b></div><div><small>AVG. REACH</small><b>184K</b></div><div><small>FORECAST CTR</small><b>7.8%</b></div></div>
+            <div className="fit-line"><span style={{width:"96%"}} /></div>
+          </div>
           <h3>Понимать результат<br />еще до эфира.</h3>
           <p>Получите подборку авторов под задачу, согласуйте формат заранее и увидите результат каждого размещения в одном отчете.</p>
           <ul><li>Авторы под вашу аудиторию и категорию</li><li>Сценарий и стоимость до согласования</li><li>Отчет по каждому размещению</li></ul>
@@ -88,7 +97,12 @@ export default function Home() {
         </article>
         <article className="audience-card creator-card">
           <span className="card-number">02</span><span className="card-tag">ДЛЯ СТРИМЕРОВ</span>
-          <div className="orb orb-creator"><i /><i /><i /></div>
+          <div className="product-preview creator-preview" aria-label="Пример предложения стримеру">
+            <div className="preview-top"><span>NEW OFFER / 08</span><b><i /> BRAND SAFE</b></div>
+            <div className="offer-brand"><span className="offer-mark">R</span><div><strong>RUSH MODE</strong><small>Gaming launch · Native overlay</small></div><b>$620</b></div>
+            <div className="offer-details"><span><small>FORMAT</small><b>45 SEC</b></span><span><small>PLACEMENT</small><b>1 STREAM</b></span><span><small>DEADLINE</small><b>24 AUG</b></span></div>
+            <div className="offer-status"><span>READY TO REVIEW</span><i>→</i></div>
+          </div>
           <h3>Выбирать рекламу,<br />а не терпеть её.</h3>
           <p>Вы сами решаете, какой бренд попадет в эфир. Формат подстраивается под канал, а ставка и сценарий понятны до вашего согласия.</p>
           <ul><li>Вы выбираете бренд и кампанию</li><li>Ставка и сценарий известны заранее</li><li>Формат учитывает стиль вашего канала</li></ul>
@@ -123,10 +137,13 @@ export default function Home() {
       <section className="dashboard-section shell" id="proof">
         <div className="dashboard-copy"><p className="section-kicker">03 / Все видно</p><h2>Результат -<br /><span>не ощущение.</span></h2><p>Единая картина кампании: кто вышел в эфир, сколько людей увидели интеграцию и что сделали после.</p><div className="data-points"><div><b>REAL-TIME</b><span>данные без задержки</span></div><div><b>BRAND-SAFE</b><span>контроль площадок</span></div></div></div>
         <div className="dashboard">
-          <div className="dash-head"><span>CAMPAIGN / RUSH MODE</span><span className="live-dot">● LIVE</span></div>
+          <div className="dash-head"><span>CAMPAIGN / RUSH MODE</span><div className="dash-head-actions"><span>18-24 AUG</span><span className="live-dot">● LIVE</span></div></div>
           <div className="dash-total"><small>Суммарный охват</small><strong>1 284 602</strong><span>+24.8% к прогнозу</span></div>
+          <div className="chart-meta"><span>LIVE REACH</span><div><i className="actual-dot" /> ACTUAL <i className="forecast-dot" /> FORECAST</div></div>
           <div className="bars" aria-label="График охвата кампании"><i style={{height:"28%"}}/><i style={{height:"44%"}}/><i style={{height:"38%"}}/><i style={{height:"62%"}}/><i style={{height:"52%"}}/><i style={{height:"78%"}}/><i style={{height:"68%"}}/><i style={{height:"92%"}}/><i style={{height:"86%"}}/><i style={{height:"100%"}}/></div>
+          <div className="chart-axis"><span>18 AUG</span><span>21 AUG</span><span>24 AUG</span></div>
           <div className="dash-bottom"><div><span>CTR</span><b>7.84%</b></div><div><span>Ср. просмотр</span><b>04:18</b></div><div><span>Активных эфиров</span><b>08</b></div></div>
+          <div className="campaign-row"><span className="campaign-avatar">NL</span><div><b>@nikita_live</b><small>TWITCH · OVERLAY 45 SEC</small></div><span className="campaign-reach">184.2K<small>REACH</small></span><span className="campaign-status">LIVE</span></div>
         </div>
       </section>
 
