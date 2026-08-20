@@ -4,6 +4,8 @@ import { LeadForm } from "./LeadForm";
 import { LanguageSwitcher, useLanguage } from "./LanguageContext";
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
+const BrandLogo = ({ compact = false }: { compact?: boolean }) => <span className={`brand-logo${compact ? " compact" : ""}`} aria-hidden="true"><b>ADD</b><b>FLOW</b><i /></span>;
+const Equalizer = () => <span className="brand-equalizer" aria-hidden="true">{[3,6,9,13,8,5,11,16,12,7,10,15,9,5,3].map((height,index)=><i key={index} style={{height:`${height}px`}} />)}</span>;
 
 export default function Home() {
   const { t } = useLanguage();
@@ -12,8 +14,7 @@ export default function Home() {
       <header className="nav-wrap">
         <nav className="nav shell" aria-label="Основная навигация">
           <a className="logo" href="#top" aria-label="AddFlow - на главную">
-            <img src="/addflow-logo-original.png" alt="" />
-            <span>AddFlow</span>
+            <BrandLogo compact />
           </a>
           <div className="nav-links">
             <a href="#product">Продукт</a>
@@ -27,6 +28,7 @@ export default function Home() {
       <section className="hero shell" id="top">
         <div className="hero-copy">
           <div className="eyebrow"><span /> Новая рекламная среда стриминга</div>
+          <Equalizer />
           <h1>В эфире - бренд.<br /><em>В плюсе - автор.</em></h1>
           <p className="hero-lead">Бренды получают нативное внимание и прозрачный результат. Стримеры выбирают подходящие кампании и монетизируют аудиторию без потери доверия.</p>
           <div className="hero-actions">
@@ -72,7 +74,7 @@ export default function Home() {
         <div className="shell manifesto-grid">
           <p className="section-kicker">01 / Новый стандарт</p>
           <h2>Реклама становится<br /><span>частью контента.</span></h2>
-          <p className="manifesto-copy">Не случайный логотип поверх трансляции, а точное попадание в аудиторию, управляемый сценарий и измеримый результат.</p>
+          <div className="manifesto-side"><Equalizer /><p className="manifesto-copy">Не случайный логотип поверх трансляции, а точное попадание в аудиторию, управляемый сценарий и измеримый результат.</p></div>
         </div>
         <div className="ticker" aria-hidden="true"><div>{t("ticker")} {t("ticker")} {t("ticker")} {t("ticker")}&nbsp;</div></div>
       </section>
@@ -113,6 +115,7 @@ export default function Home() {
       <section className="creator-showcase shell" id="integration" aria-label="Пример рекламной интеграции в эфире">
         <div className="creator-visual">
           <img src="/streamer-creator-overlay.png" alt="Автор ведет эфир с интегрированным рекламным оверлеем" />
+          <div className="creator-wave"><Equalizer /></div>
           <div className="creator-live"><span>● LIVE</span><b>4 892</b><small>смотрят сейчас</small></div>
         </div>
         <div className="creator-caption">
@@ -155,7 +158,7 @@ export default function Home() {
         </div>
       </section>
 
-      <footer><div className="shell footer-grid"><div className="logo"><img src="/addflow-logo-original.png" alt="" /><span>AddFlow</span></div><p>{t("footer")}</p><div><a href="mailto:hello@addflow.ru">{t("contacts")}</a><a href="#top">{t("top")} ↑</a></div></div></footer>
+      <footer><div className="shell footer-grid"><div className="logo"><BrandLogo compact /></div><p>{t("footer")}</p><div><a href="mailto:hello@addflow.ru">{t("contacts")}</a><a href="#top">{t("top")} ↑</a></div></div></footer>
     </main>
   );
 }
