@@ -47,6 +47,7 @@ const ka: Dictionary = {
 const dictionaries: Record<Locale, Dictionary> = { ru, kk, ka, ko, en, de, tr };
 const localeNames: Record<Locale, string> = { ru:"Русский", kk:"Қазақша", ka:"ქართული", ko:"한국어", en:"English", de:"Deutsch", tr:"Türkçe" };
 const localeCodes: Record<Locale, string> = { ru:"RU", kk:"KZ", ka:"GE", ko:"KR", en:"EN", de:"DE", tr:"TR" };
+const localeFlags: Record<Locale, string> = { ru:"ru", kk:"kz", ka:"ge", ko:"kr", en:"gb", de:"de", tr:"tr" };
 
 type LanguageValue = { locale: Locale; setLocale: (locale: Locale) => void; t: (key: string) => string };
 const LanguageContext = createContext<LanguageValue>({ locale:"ru", setLocale:()=>{}, t:(key)=>ru[key] ?? key });
@@ -113,7 +114,7 @@ export function LanguageSwitcher() {
     return () => { document.removeEventListener("pointerdown", close); document.removeEventListener("keydown", escape); };
   }, []);
   return <div className="language-switcher" ref={rootRef}>
-    <button className="language-current" type="button" aria-label="Language" aria-haspopup="listbox" aria-expanded={open} onClick={()=>setOpen(!open)}><span className={`country-flag flag-${locale}`} aria-hidden="true" /><small>{localeCodes[locale]}</small><span className="language-chevron" aria-hidden="true" /></button>
-    {open && <div className="language-menu" role="listbox"><div className="language-menu-title"><span>Language</span><small>{localeCodes[locale]}</small></div>{(Object.keys(localeNames) as Locale[]).map((code)=><button role="option" aria-selected={locale===code} lang={code} key={code} type="button" onClick={()=>{setLocale(code);setOpen(false)}}><span className={`country-flag flag-${code}`} aria-hidden="true" /><span>{localeNames[code]}</span><small>{localeCodes[code]}</small><i aria-hidden="true">✓</i></button>)}</div>}
+    <button className="language-current" type="button" aria-label="Language" aria-haspopup="listbox" aria-expanded={open} onClick={()=>setOpen(!open)}><img className="country-flag" src={`/flags/${localeFlags[locale]}.png`} alt="" aria-hidden="true" /><small>{localeCodes[locale]}</small><span className="language-chevron" aria-hidden="true" /></button>
+    {open && <div className="language-menu" role="listbox"><div className="language-menu-title"><span>Language</span><small>{localeCodes[locale]}</small></div>{(Object.keys(localeNames) as Locale[]).map((code)=><button role="option" aria-selected={locale===code} lang={code} key={code} type="button" onClick={()=>{setLocale(code);setOpen(false)}}><img className="country-flag" src={`/flags/${localeFlags[code]}.png`} alt="" aria-hidden="true" /><span>{localeNames[code]}</span><small>{localeCodes[code]}</small><i aria-hidden="true">✓</i></button>)}</div>}
   </div>;
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { LeadForm } from "./LeadForm";
 import { LanguageSwitcher, useLanguage } from "./LanguageContext";
 
@@ -9,8 +10,32 @@ const Equalizer = () => <span className="brand-equalizer" aria-hidden="true">{[3
 
 export default function Home() {
   const { t } = useLanguage();
+  const [showIntro, setShowIntro] = useState(true);
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    document.body.classList.add("intro-active");
+    const timer = window.setTimeout(() => {
+      setShowIntro(false);
+      document.body.classList.remove("intro-active");
+    }, reducedMotion ? 450 : 3000);
+    return () => {
+      window.clearTimeout(timer);
+      document.body.classList.remove("intro-active");
+    };
+  }, []);
+
   return (
-    <main>
+    <>
+      {showIntro && <div className="site-intro" role="status" aria-label="AddFlow загружается">
+        <div className="intro-frame" aria-hidden="true">
+          <div className="intro-rec"><i /> REC</div>
+          <BrandLogo />
+          <div className="intro-signal"><Equalizer /></div>
+          <span className="intro-time">00:00:01</span>
+        </div>
+      </div>}
+      <main>
       <header className="nav-wrap">
         <nav className="nav shell" aria-label="Основная навигация">
           <a className="logo" href="#top" aria-label="AddFlow - на главную">
@@ -36,10 +61,10 @@ export default function Home() {
             <a className="button ghost" href="#streamers">Я стример - стать партнером</a>
           </div>
           <div className="platform-row" aria-label="Streaming platforms">
-            <span className="platform-chip platform-vk"><i aria-hidden="true">VK</i><b>LIVE</b></span>
-            <span className="platform-chip platform-kick"><b>KICK</b></span>
-            <span className="platform-chip platform-twitch"><i aria-hidden="true" /><b>TWITCH</b></span>
-            <span className="platform-chip platform-youtube"><i aria-hidden="true" /><b>YOUTUBE</b><small>LIVE</small></span>
+            <span className="platform-chip platform-vk"><img src="/brands/vk.svg" alt="" aria-hidden="true" /><b>VK LIVE</b></span>
+            <span className="platform-chip platform-kick"><img src="/brands/kick.svg" alt="" aria-hidden="true" /><b>KICK</b></span>
+            <span className="platform-chip platform-twitch"><img src="/brands/twitch.svg" alt="" aria-hidden="true" /><b>TWITCH</b></span>
+            <span className="platform-chip platform-youtube"><img src="/brands/youtube.svg" alt="" aria-hidden="true" /><b>YOUTUBE LIVE</b></span>
           </div>
         </div>
 
@@ -49,7 +74,7 @@ export default function Home() {
           <div className="live-window">
             <div className="window-top"><span className="live-dot">LIVE</span><span>Демо-кампания / 08</span><span>•••</span></div>
             <div className="stream-frame">
-              <img className="stream-photo" src="/streamer-gaming-overlay.png" alt="Игровой эфир с нативным рекламным оверлеем" />
+              <img className="stream-photo" src="/streamer-gaming-stream-v2.png" alt="Кадр светлой трансляции с компактным нативным рекламным оверлеем" />
               <span className="viewers">● 2 418 зрителей</span>
             </div>
             <div className="metric-strip">
@@ -89,7 +114,7 @@ export default function Home() {
               <div><strong>@nikita_live</strong><small>Gaming & Tech · TWITCH</small></div>
               <span className="verified">✓</span>
             </div>
-            <div className="preview-stats"><div><small>CORE AUDIENCE</small><b>64%</b></div><div><small>AVG. REACH</small><b>184K</b></div><div><small>FORECAST CTR</small><b>7.8%</b></div></div>
+            <div className="preview-stats"><div><small>AUDIENCE</small><b>64%</b></div><div><small>AVG. REACH</small><b>184K</b></div><div><small>CTR</small><b>7.8%</b></div></div>
             <div className="fit-line"><span style={{width:"96%"}} /></div>
           </div>
           <h3>Понимать результат<br />еще до эфира.</h3>
@@ -114,7 +139,7 @@ export default function Home() {
 
       <section className="creator-showcase shell" id="integration" aria-label="Пример рекламной интеграции в эфире">
         <div className="creator-visual">
-          <img src="/streamer-creator-overlay.png" alt="Автор ведет эфир с интегрированным рекламным оверлеем" />
+          <img src="/streamer-creator-stream-v2.png" alt="Скриншот эфира автора с ненавязчивым рекламным оверлеем в safe-зоне" />
           <div className="creator-wave"><Equalizer /></div>
           <div className="creator-live"><span>● LIVE</span><b>4 892</b><small>смотрят сейчас</small></div>
         </div>
@@ -159,6 +184,7 @@ export default function Home() {
       </section>
 
       <footer><div className="shell footer-grid"><div className="logo"><BrandLogo compact /></div><p>{t("footer")}</p><div><a href="mailto:hello@addflow.ru">{t("contacts")}</a><a href="#top">{t("top")} ↑</a></div></div></footer>
-    </main>
+      </main>
+    </>
   );
 }
