@@ -107,3 +107,45 @@ body.intro-active{overflow:hidden}.site-intro{position:fixed;z-index:9999;inset:
 .contact-grid>div>p:not(.section-kicker){color:#5c5656}.lead-form{box-shadow:14px 14px 0 var(--pink)}
 
 @media(max-width:700px){.creator-showcase{grid-template-columns:1fr;gap:44px}.creator-visual{width:100%;min-height:460px}.contact{background:radial-gradient(circle at 0 72%,rgba(207,255,47,.42),transparent 35%),linear-gradient(160deg,#f5f2f1,#fff 62%,#f3e8fb)}.contact h2 em:after{height:.2em}.lead-form{box-shadow:8px 8px 0 var(--pink)}}
+
+/* Brandbook typography compatibility and non-Latin language coverage */
+body{--font-geist-mono:var(--font-geologica);--font-geist-sans:var(--font-mont)}
+html[lang="ko"] body,html[lang="ko"] button,html[lang="ko"] input,html[lang="ko"] textarea,html[lang="ko"] h1,html[lang="ko"] h2,html[lang="ko"] h3,html[lang="ko"] strong,html[lang="ko"] b{font-family:var(--font-korean),sans-serif!important}
+html[lang="ka"] body,html[lang="ka"] button,html[lang="ka"] input,html[lang="ka"] textarea,html[lang="ka"] h1,html[lang="ka"] h2,html[lang="ka"] h3,html[lang="ka"] strong,html[lang="ka"] b{font-family:var(--font-georgian),sans-serif!important}
+
+/* Mobile layout polish */
+@media(max-width:700px){
+  .hero-stage{min-height:560px;margin-top:38px}
+  .live-window{inset:42px 0 96px 0}
+  .floating-card{padding:10px 12px}
+  .floating-card b{font-size:20px}
+  .floating-card.card-a{left:10px;top:104px;width:116px}
+  .floating-card.card-b{right:0;bottom:18px}
+  .stream-frame{height:236px;margin:14px}
+  .metric-strip{margin-inline:14px}
+  .metric-strip>div{min-width:0;padding:9px 7px}
+  .metric-strip small,.metric-strip span{font-size:7px;overflow-wrap:anywhere}
+  .metric-strip b{font-size:15px}
+  .ad-overlay{left:12px;right:12px;bottom:14px;min-height:54px;padding:8px 11px;gap:8px}
+  .ad-overlay b{font-size:13px}
+  .ad-overlay strong{font-size:22px}
+  .viewers{right:10px;top:10px}
+  .offer-details{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .offer-details span{min-width:0;padding-inline:5px}
+  .offer-details small{font-size:6px;letter-spacing:-.015em;white-space:normal;overflow-wrap:anywhere}
+  .offer-details b{font-size:10px;white-space:normal}
+  .creator-live{right:14px;top:14px;padding:10px 12px;gap:1px 10px}
+  .creator-live b{font-size:16px}
+}
+@media(max-width:360px){
+  :root{--shell:calc(100vw - 24px)}
+  .hero h1{font-size:44px}
+  .hero-stage{min-height:548px}
+  .platform-chip{padding-inline:8px 10px;gap:7px}
+  .audience-card{padding:20px}
+  .audience-card h3{font-size:34px}
+  .dashboard-section{padding:18px}
+  .dash-bottom{grid-template-columns:1fr 1fr}
+  .dash-bottom div:last-child{grid-column:1/-1}
+  .contact h2{font-size:47px}
+}
