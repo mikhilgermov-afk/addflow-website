@@ -98,3 +98,12 @@ body.intro-active{overflow:hidden}.site-intro{position:fixed;z-index:9999;inset:
 
 /* Real country flag thumbnails */
 .country-flag{display:block;width:25px;height:17px;object-fit:cover;border-radius:3px;background:#fff;box-shadow:0 0 0 1px rgba(21,16,16,.13),0 2px 5px rgba(21,16,16,.12)}.language-menu .country-flag{width:27px;height:18px}.language-current .country-flag{width:25px;height:17px}
+
+/* Final visual consistency pass */
+.contact{background:radial-gradient(circle at 8% 92%,rgba(207,255,47,.48),transparent 28%),linear-gradient(135deg,#f5f2f1 0%,#fff 58%,#f3e8fb 100%);border:1px solid rgba(21,16,16,.09)}
+.contact-orb{border-color:rgba(255,117,195,.42)}.contact-orb:after{border-color:rgba(194,144,235,.5)}
+.contact .section-kicker{display:inline-flex;align-items:center;min-height:30px;padding:0 12px;border-radius:999px;background:var(--lime);color:var(--ink)}
+.contact h2 em{position:relative;z-index:0;display:inline-block;color:var(--ink)}.contact h2 em:after{content:"";position:absolute;z-index:-1;left:-.035em;right:-.045em;bottom:.04em;height:.24em;border-radius:999px;background:var(--pink);transform:rotate(-1.2deg)}
+.contact-grid>div>p:not(.section-kicker){color:#5c5656}.lead-form{box-shadow:14px 14px 0 var(--pink)}
+
+@media(max-width:700px){.creator-showcase{grid-template-columns:1fr;gap:44px}.creator-visual{width:100%;min-height:460px}.contact{background:radial-gradient(circle at 0 72%,rgba(207,255,47,.42),transparent 35%),linear-gradient(160deg,#f5f2f1,#fff 62%,#f3e8fb)}.contact h2 em:after{height:.2em}.lead-form{box-shadow:8px 8px 0 var(--pink)}}

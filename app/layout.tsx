@@ -9,7 +9,13 @@ const geologica = Geologica({ variable: "--font-geologica", subsets: ["latin", "
 export const metadata: Metadata = {
   title: "AddFlow - реклама входит в эфир",
   description: "AddFlow соединяет бренды и стримеров: нативные интеграции, прозрачные условия и живая аналитика кампаний.",
-  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+  icons: {
+    icon: [
+      { url: "/favicon.ico", sizes: "64x64" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/favicon.ico",
+  },
   openGraph: {
     title: "AddFlow - реклама входит в эфир",
     description: "Нативная реклама для прямых эфиров - с понятными условиями для брендов и стримеров.",
